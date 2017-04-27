@@ -1,13 +1,17 @@
 package ru.kimdo;
 
 import javax.swing.*;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by kimdo on 27.04.17.
+ * This is GUI of Simple Chat Bot
  */
 
-public class SimpleChatBot extends JFrame {
+public class SimpleChatBot extends JFrame implements ActionListener {
 
     final String TITLE_OF_PROGRAM = "Chatter: simple chatbot";
     final int START_LOCATION = 200;
@@ -37,9 +41,9 @@ public class SimpleChatBot extends JFrame {
         ai = new JCheckBox("IA");
         ai.doClick();
         message = new JTextField();
-//        message.addActionListener(this);
+        message.addActionListener(this);
         JButton enter = new JButton("Enter");
-//        enter.addActionListener(this);
+        enter.addActionListener(this);
 
         bp.add(ai);
         bp.add(message);
@@ -49,5 +53,14 @@ public class SimpleChatBot extends JFrame {
 
         setVisible(true);
         
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (message.getText().trim().length() > 0) {
+            dialogue.append(message.getText() + "\n");
+        }
+        message.setText("");
+        message.requestFocusInWindow();
     }
 }
