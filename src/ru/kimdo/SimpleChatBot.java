@@ -1,6 +1,7 @@
 package ru.kimdo;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by kimdo on 27.04.17.
@@ -26,6 +27,12 @@ public class SimpleChatBot extends JFrame {
         setTitle(TITLE_OF_PROGRAM);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(START_LOCATION, START_LOCATION, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+        dialogue = new JTextArea();
+        dialogue.setEditable(true);
+        JScrollPane scrollBar = new JScrollPane(dialogue);
+
+        add(BorderLayout.CENTER, scrollBar);
 
         setVisible(true);
         
