@@ -32,7 +32,20 @@ public class SimpleChatBot extends JFrame {
         dialogue.setEditable(true);
         JScrollPane scrollBar = new JScrollPane(dialogue);
 
+        JPanel bp = new JPanel();
+        bp.setLayout(new BoxLayout(bp, BoxLayout.X_AXIS));
+        ai = new JCheckBox("IA");
+        ai.doClick();
+        message = new JTextField();
+//        message.addActionListener(this);
+        JButton enter = new JButton("Enter");
+//        enter.addActionListener(this);
+
+        bp.add(ai);
+        bp.add(message);
+        bp.add(enter);
         add(BorderLayout.CENTER, scrollBar);
+        add(BorderLayout.SOUTH, bp);
 
         setVisible(true);
         
